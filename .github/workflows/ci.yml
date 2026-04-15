@@ -1,4 +1,4 @@
-name: CI Workflow
+name: CI Pipeline
 
 on:
   push:
@@ -9,8 +9,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    
     - name: Checkout Code
       uses: actions/checkout@v3
 
-    - name: Print Message
-      run: echo "Hello, GitHub Actions is working!"
+    - name: Show Files
+      run: ls
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install Dependencies
+      run: echo "Installing dependencies..."
+
+    - name: Run Tests
+      run: echo "Running tests..."
+
+    - name: Build Application
+      run: echo "Building project..."
